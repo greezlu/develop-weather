@@ -1,0 +1,8 @@
+*
+!.gitignore
+!composer.json
+!composer.lock
+!app
+!app/code
+!app/etc
+!app/etc/config.php
