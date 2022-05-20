@@ -8,4 +8,13 @@
     <preference for="Develop\Weather\Api\WeatherStatusRepositoryInterface"
                 type="Develop\Weather\Model\WeatherStatusRepository" />
 
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="weather_log_grid_data_source"
+                      xsi:type="string">Develop\Weather\Model\ResourceModel\WeatherLog\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
 </config>

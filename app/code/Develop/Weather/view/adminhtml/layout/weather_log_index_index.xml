@@ -16,5 +16,8 @@
                           xsi:type="string">Develop_Weather::weather_log</argument>
             </action>
         </referenceBlock>
+        <referenceContainer name="content">
+            <uiComponent name="weather_log_grid"/>
+        </referenceContainer>
     </body>
 </page>
