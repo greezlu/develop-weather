@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Develop\Weather\ViewModel\WeatherStatusData $viewModel
+ */
+
+$viewModel = $block->getViewModel();
+$weatherData = $viewModel->getWeatherData();
+?>
+
+<?php foreach($weatherData as $title => $value): ?>
+    <p><b><?= $title ?>:</b> <span><?= $value ?></span></p>
+<?php endforeach ?>
