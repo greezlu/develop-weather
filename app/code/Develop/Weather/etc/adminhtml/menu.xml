@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Develop_Weather::weather_log"
+             title="Weather Log"
+             translate="title"
+             module="Develop_Weather"
+             parent="Magento_Backend::system_tools"
+             sortOrder="30"
+             dependsOnModule="Develop_Weather"
+             action="weather-log/index/index"
+             resource="Develop_Weather::weather_log" />
+    </menu>
+</config>
