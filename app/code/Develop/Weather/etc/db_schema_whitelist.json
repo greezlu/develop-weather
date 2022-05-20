@@ -1,0 +1,42 @@
+{
+    "weather_interpreter": {
+        "column": {
+            "id": true,
+            "description": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "weather_city_coordinates": {
+        "column": {
+            "id": true,
+            "name": true,
+            "latitude": true,
+            "longitude": true
+        },
+        "index": {
+            "WEATHER_CITY_COORDINATES_NAME": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "WEATHER_CITY_COORDINATES_LATITUDE_LONGITUDE": true
+        }
+    },
+    "weather_status": {
+        "column": {
+            "id": true,
+            "city_coordinates_id": true,
+            "weather_interpreter_id": true,
+            "temperature": true,
+            "wind_speed": true,
+            "wind_direction": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "WEATHER_STATUS_CITY_COORDINATES_ID_WEATHER_CITY_COORDINATES_ID": true,
+            "WEATHER_STATUS_WEATHER_INTERPRETER_ID_WEATHER_INTERPRETER_ID": true
+        }
+    }
+}

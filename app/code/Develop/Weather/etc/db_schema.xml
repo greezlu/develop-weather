@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="weather_interpreter"
+           resource="default"
+           engine="innodb"
+           comment="Weather Code">
+        <column xsi:type="int"
+                name="id"
+                unsigned="true"
+                nullable="false"
+                comment="Interpreter code"/>
+        <column xsi:type="varchar"
+                name="description"
+                nullable="false"
+                comment="Weather code description"
+                length="255"/>
+        <constraint xsi:type="primary"
+                    referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="weather_city_coordinates"
+           resource="default"
+           engine="innodb"
+           comment="Weather City Coordinates">
+        <column xsi:type="int"
+                name="id"
+                unsigned="true"
+                nullable="false"
+                identity="true"
+                comment="City Coordinates ID"/>
+        <column xsi:type="varchar"
+                name="name"
+                nullable="false"
+                comment="City Name"
+                length="255"/>
+        <column xsi:type="float"
+                name="latitude"
+                nullable="false"
+                comment="City Latitude"
+                unsigned="false"
+                precision="8"
+                scale="4"/>
+        <column xsi:type="float"
+                name="longitude"
+                nullable="false"
+                comment="City Longitude"
+                unsigned="false"
+                precision="8"
+                scale="4"/>
+        <constraint xsi:type="primary"
+                    referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique"
+                    referenceId="WEATHER_CITY_COORDINATES_LATITUDE_LONGITUDE">
+            <column name="latitude"/>
+            <column name="longitude"/>
+        </constraint>
+        <index referenceId="WEATHER_CITY_COORDINATES_NAME"
+               indexType="btree">
+            <column name="name"/>
+        </index>
+    </table>
+
+    <table name="weather_status"
+           resource="default"
+           engine="innodb"
+           comment="Weather Status">
+        <column xsi:type="int"
+                name="id"
+                unsigned="true"
+                nullable="false"
+                identity="true"
+                comment="Weather Status ID"/>
+        <column xsi:type="int"
+                name="city_coordinates_id"
+                nullable="false"
+                unsigned="true"
+                comment="City Coordinates ID"/>
+        <column xsi:type="int"
+                name="weather_interpreter_id"
+                nullable="false"
+                unsigned="true"
+                comment="Weather Interpreter ID"/>
+        <column xsi:type="float"
+                name="temperature"
+                nullable="false"
+                comment="Temperature in Celsius"
+                unsigned="true"
+                precision="8"
+                scale="2"/>
+        <column xsi:type="float"
+                name="wind_speed"
+                nullable="false"
+                comment="Wind Speed in km/h"
+                unsigned="true"
+                precision="8"
+                scale="2"/>
+        <column xsi:type="int"
+                name="wind_direction"
+                nullable="false"
+                comment="Wind Direction Degree"
+                unsigned="true"/>
+        <column xsi:type="datetime"
+                name="created_at"
+                nullable="false"
+                comment="Created At"/>
+        <constraint xsi:type="primary"
+                    referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign"
+                    referenceId="WEATHER_STATUS_CITY_COORDINATES_ID_WEATHER_CITY_COORDINATES_ID"
+                    table="weather_status"
+                    column="city_coordinates_id"
+                    referenceTable="weather_city_coordinates"
+                    referenceColumn="id"
+                    onDelete="CASCADE"/>
+        <constraint xsi:type="foreign"
+                    referenceId="WEATHER_STATUS_WEATHER_INTERPRETER_ID_WEATHER_INTERPRETER_ID"
+                    table="weather_status"
+                    column="weather_interpreter_id"
+                    referenceTable="weather_interpreter"
+                    referenceColumn="id"
+                    onDelete="CASCADE"/>
+    </table>
+
+</schema>
