@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <weather_status>
+            <city_coordinates>
+                <id>1</id>
+            </city_coordinates>
+            <time_zone>
+                <code>Europe/London</code>
+            </time_zone>
+        </weather_status>
+    </default>
+</config>
