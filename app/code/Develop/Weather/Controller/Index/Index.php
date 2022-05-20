@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Develop\Weather\Controller\Index;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;

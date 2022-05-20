@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Develop\Weather\Ui\Component\WeatherLog\Listing\Column;
 
 use Magento\Ui\Component\Listing\Columns\Column;

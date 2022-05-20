@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Develop\Weather\Model;
 
 use Develop\Weather\Model\ResourceModel\WeatherInterpreter as ResourceModel;

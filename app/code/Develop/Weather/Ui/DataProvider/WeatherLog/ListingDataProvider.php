@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Develop\Weather\Ui\DataProvider\WeatherLog;
 
 use Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider;

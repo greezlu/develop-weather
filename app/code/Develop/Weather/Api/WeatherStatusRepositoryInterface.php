@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Develop\Weather\Api;
 
 use Develop\Weather\Api\Data\WeatherStatusInterface;

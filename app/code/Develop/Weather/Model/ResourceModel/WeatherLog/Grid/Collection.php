@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Develop\Weather\Model\ResourceModel\WeatherLog\Grid;
 
 use Magento\Framework\Api\Search\SearchResultInterface;

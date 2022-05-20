@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Develop\Weather\ViewModel;
 
 use Magento\Framework\View\Element\Block\ArgumentInterface;
